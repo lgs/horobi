@@ -77,17 +77,17 @@ Sub-node get data from Hub-node and do some stuff.
 
 # Example
 
-Please see example/ directory.
+Please see examples/ directory.
 
     # launch pub node with background job, stream push to tcp://127.0.0.1:5551. if you don't want to log messages, use -l /dev/null option
-    $ SCREEN_NAME=uu59 PASSWORD=xxxx ruby example/twitter/pub1.rb -o tcp://127.0.0.1:5551 ruby & # tracking twitter stream with "ruby"
-    $ ruby example/twitter/pub2.rb -o tcp://127.0.0.1:5551 & # fake stream
+    $ SCREEN_NAME=uu59 PASSWORD=xxxx ruby examples/twitter/pub1.rb -o tcp://127.0.0.1:5551 ruby & # tracking twitter stream with "ruby"
+    $ ruby examples/twitter/pub2.rb -o tcp://127.0.0.1:5551 & # fake stream
 
     # launch hub node as daemon(-d), ZeroMQ PULL socket listen to tcp://127.0.0.1:5551 (-i 5551) and PUB socket is tcp://127.0.0.1:5552 (-o 5552)
-    $ ruby example/twitter/hub.rb -d -i 5551 -o 5552
+    $ ruby examples/twitter/hub.rb -d -i 5551 -o 5552
 
     # get data from tcp://127.0.0.1:5552. you'll get mixed stream of twitter and fake.
-    $ ruby example/twitter/sub1.rb -i tcp://127.0.0.1:5552
+    $ ruby examples/twitter/sub1.rb -i tcp://127.0.0.1:5552
 
 You can ignore launch sequence to Pub/Sub/Hub nodes.
 
